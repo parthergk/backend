@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+const CollegeID = require("../models/CollegeId");
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "default_secret";
@@ -12,6 +13,11 @@ router.use(express.json());
 router.post('/register', async (req, res) => {
     try {
         const { collegeID, password } = req.body;
+
+        const verifycollegeId = await CollegeID.findOne({collegeID});
+        if(!verifycollegeId){
+            return res.status(400).json({ message: 'Invalid College Id' });
+        }
 
         // Check if the user already exists
         const userExists = await User.findOne({ collegeID });
