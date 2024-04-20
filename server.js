@@ -4,11 +4,10 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth");
 const reviewsRoutes = require("./routes/reviews");
 const reviewRoutes = require("./routes/review");
-const searchRoutes = require("./routes/search")
+const searchRoutes = require("./routes/search");
 const app = express();
 const port = process.env.PORT || 3000;
-const db_uri = process.env.DB_URI
-
+const db_uri = process.env.DB_URI;
 
 app.use(cors({
     origin: 'https://vgc-trs.vercel.app',
@@ -37,7 +36,7 @@ main()
 
 async function main() {
   try {
-    await mongoose.connect(`${db_uri}`);
+    await mongoose.connect(db_uri);
   } catch (err) {
     throw new Error(`Database connection error: ${err.message}`);
   }
