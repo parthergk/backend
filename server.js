@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 
 app.use(cors({
-    origin: 'http://localhost:1234',
+    origin: 'https://trs-frontend-chi.vercel.app',
     credentials: true,
 }));
 app.use(express.urlencoded({ extended: true }));
