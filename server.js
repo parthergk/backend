@@ -34,7 +34,6 @@ main()
     process.exit(1); // Exit the process if database connection fails
   });
 
-console.log("DB_URI:", db_uri);
 
 async function main() {
   try {
