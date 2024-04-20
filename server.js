@@ -37,7 +37,7 @@ main()
 
 async function main() {
   try {
-    await mongoose.connect(`"${db_uri}"`);
+    await mongoose.connect(`${db_uri}`);
   } catch (err) {
     throw new Error(`Database connection error: ${err.message}`);
   }
